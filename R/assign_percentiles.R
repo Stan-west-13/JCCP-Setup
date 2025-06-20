@@ -6,7 +6,7 @@ assign_percentile_produces <- function(d, norms, TD_threshold = 15) {
   d$value <- NULL
 
   D <- d %>%
-    dplyr::group_by(data_id,age,sex) %>%
+    dplyr::group_by(data_id,age,sex,mom_ed) %>%
     dplyr::summarize(WordsProduced = sum(produces)) %>%
     dplyr::ungroup()
 
@@ -31,7 +31,7 @@ assign_percentile_understands <- function(d, norms, TD_threshold = 15) {
   d$value <- NULL
 
   D <- d %>%
-    dplyr::group_by(data_id,age,sex) %>%
+    dplyr::group_by(data_id,age,sex,mom_ed) %>%
     dplyr::summarize(WordsUnderstood = sum(produces)) %>%
     dplyr::ungroup()
 
